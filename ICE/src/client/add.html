@@ -27,6 +27,7 @@ Description: In class 3 add.html
         <div class="container">
           <h1>Add Animal</h1>
           <hr>
+          <div id="message-box" class="alert alert-danger d-none"></div>
           <form id="animal-form" method="POST">
             <div class="mb-2">
               <div class="mb-3">
@@ -38,21 +39,25 @@ Description: In class 3 add.html
               <div class="mb-3">
                 <label for="breed" class="form-label">Animal Breed</label>
                 <input type="text" class="form-control" id="breed" name="breed">
+                <p class="text-danger d-none">Breed is required</p>
               </div>
     
               <div class="mb-3">
                 <label for="legs" class="form-label">Number of Legs</label>
                 <input type="number" class="form-control" id="legs" name="legs">
+                <p class="text-danger d-none">Leg must be positive</p>
               </div>
     
               <div class="mb-3">
                 <label for="eyes" class="form-label">Number of Eyes</label>
                 <input type="number" class="form-control" id="eyes" name="eyes">
+                <p class="text-danger d-none">number of eyes should be positive</p>
               </div>
     
               <div class="mb-3">
                 <label for="sound" class="form-label">Sound This Animal Makes</label>
                 <input type="text" class="form-control" id="sound" name="sound">
+                <p class="text-danger d-none">Sound is required</p>
               </div>
   
               <div>
@@ -77,6 +82,7 @@ Description: In class 3 add.html
           <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
         </ul>
       </div>
-    </footer>    
+    </footer>  
+    <script src="./app/animals/create.js"></script>  
   </body>
 </html>
