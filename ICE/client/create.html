@@ -1,7 +1,11 @@
-<!--
-Name: Jordy Francis
-Description: In class 3 add.html
--->
+<!-- /*
+    Name: Jordy Francis
+    filename: create.html
+    Course: INFT 2202
+    Date: JAN 10TH
+    Description:  create.html file.
+*/ -->
+
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -11,13 +15,13 @@ Description: In class 3 add.html
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script defer src="./app/animal.service.mock.js"></script>
-    <script defer src="./app/add.js"></script>
+    <script defer src="./app/create.js"></script>
   </head>
   <body class="d-flex flex-column h-100">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="add.html" class="nav-link active" aria-current="page">Add Animal</a></li>
+        <li class="nav-item"><a href="create.html" class="nav-link active" aria-current="page">Add Animal</a></li>
         <li class="nav-item"><a href="list.html" class="nav-link">Show Animals</a></li>
         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
@@ -27,37 +31,36 @@ Description: In class 3 add.html
         <div class="container">
           <h1>Add Animal</h1>
           <hr>
-          <div id="message-box" class="alert alert-danger d-none"></div>
           <form id="animal-form" method="POST">
             <div class="mb-2">
+                
               <div class="mb-3">
                 <label for="name" class="form-label">Animal Name</label>
                 <input type="text" class="form-control" id="name" name="name">
-                <p class="text-danger d-none">currently hidden</p>
+                <p class="text-danger d-none" id="name-error">You must name this animal!</p>
               </div>
-
               <div class="mb-3">
                 <label for="breed" class="form-label">Animal Breed</label>
                 <input type="text" class="form-control" id="breed" name="breed">
-                <p class="text-danger d-none">Breed is required</p>
+                <p class="text-danger d-none" id="breed-error">You must specify the breed!</p>
               </div>
     
               <div class="mb-3">
                 <label for="legs" class="form-label">Number of Legs</label>
                 <input type="number" class="form-control" id="legs" name="legs">
-                <p class="text-danger d-none">Leg must be positive</p>
+                <p class="text-danger d-none" id="legs-error">Please provide a valid number of legs!</p>
               </div>
     
               <div class="mb-3">
                 <label for="eyes" class="form-label">Number of Eyes</label>
                 <input type="number" class="form-control" id="eyes" name="eyes">
-                <p class="text-danger d-none">number of eyes should be positive</p>
+                <p class="text-danger d-none" id="eyes-error">Please provide a valid number of eyes!</p>
               </div>
     
               <div class="mb-3">
                 <label for="sound" class="form-label">Sound This Animal Makes</label>
                 <input type="text" class="form-control" id="sound" name="sound">
-                <p class="text-danger d-none">Sound is required</p>
+                <p class="text-danger d-none" id="sound-error">Please provide a sound the animal makes!</p>
               </div>
   
               <div>
@@ -73,7 +76,7 @@ Description: In class 3 add.html
           <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
           </a>
-          <span class="mb-3 mb-md-0 text-body-secondary">© <span id="copyrightYear"></span> Jordy Francis, Inc</span>
+          <span class="mb-3 mb-md-0 text-body-secondary">© <span id="copyrightYear"></span> Anirudh, Inc</span>
         </div>
     
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -82,7 +85,6 @@ Description: In class 3 add.html
           <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
         </ul>
       </div>
-    </footer>  
-    <script src="./app/animals/create.js"></script>  
+    </footer>    
   </body>
 </html>
