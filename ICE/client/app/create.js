@@ -82,7 +82,7 @@ function validateAnimalForm(form) {
     const eleLegsError = form.legs.nextElementSibling;
     if (legs === "" || isNaN(legs) || Number(legs) < 0) {
         eleLegsError.classList.remove('d-none');
-        eleLegsError.textContent = "Please enter a valid number of legs (0 or more).";
+        eleLegsError.textContent = "Please enter a valid number of legs .";
         valid = false;
     } else {
         eleLegsError.classList.add('d-none');
@@ -93,7 +93,7 @@ function validateAnimalForm(form) {
     const eleEyesError = form.eyes.nextElementSibling;
     if (eyes === "" || isNaN(eyes) || Number(eyes) < 0) {
         eleEyesError.classList.remove('d-none');
-        eleEyesError.textContent = "Please enter a valid number of eyes (0 or more).";
+        eleEyesError.textContent = "Please enter a valid number of eyes .";
         valid = false;
     } else {
         eleEyesError.classList.add('d-none');
