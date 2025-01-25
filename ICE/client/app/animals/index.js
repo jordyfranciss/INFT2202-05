@@ -1,9 +1,4 @@
-/*
-Name - Jordy Francis
-Student ID - 100934437
-Description - This is index.js
-*/ 
-import animalService from "./animal.service.js";
+import animalService from "./animal.service.mock.js";
 
 function animal() {
     const form = document.createElement('form');
