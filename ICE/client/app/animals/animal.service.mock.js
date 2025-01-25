@@ -1,6 +1,7 @@
 
-/*
+/*Name - jordy francis
  *  Service constructor
+student id - 100934437
  */
 function AnimalService() {
     // if there is no entry for animals in local storage

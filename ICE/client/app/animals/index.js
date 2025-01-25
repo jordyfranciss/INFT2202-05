@@ -1,3 +1,8 @@
+/*
+Name - Jordy Francis
+Student ID - 100934437
+Description - This is my index.js
+*/ 
 import animalService from "./animal.service.mock.js";
 
 function animal() {

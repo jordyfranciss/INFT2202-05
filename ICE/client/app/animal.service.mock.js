@@ -1,5 +1,7 @@
 /*
+Name - Jordy Francis
  *  Service constructor
+Student ID - 100934437
  */
 function AnimalService() {
     function initAnimals(){
