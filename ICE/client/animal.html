@@ -1,7 +1,6 @@
 <!--
 Name: Jordy Francis
-Student ID - 100934437
-Description: This is Animal.html
+Description: animal.html
 -->
 <!DOCTYPE html>
 <html lang="en-us">
@@ -14,7 +13,9 @@ Description: This is Animal.html
     <script defer type="module">
       import animalBuilder from  "./app/animals/index.js";
 
-      const animal = animalBuilder();
+      const params = new URL(document.location).searchParams;
+      const name = params.get("name");
+      const animal = await animalBuilder(name);
       
       document.querySelector('main div h1').innerHTML = animal.description;
       const container = document.querySelector('main .container');
