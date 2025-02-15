@@ -10,7 +10,7 @@ async function animal(name) {
         }
         const container = document.createElement('div');
         container.classList.add('mb-2');
-        //create animal form content
+        
         const mb3Name = document.createElement('div');
         mb3Name.classList.add('mb-3');
         let editableInput = `<input type="text" class="form-control" id="name" name="name">`;
@@ -53,14 +53,13 @@ async function animal(name) {
             'Save Animal <i class="fa-solid fa-check"></i>' +
             '</button>';
         container.append(submitBtn);        
-        ///
+      
         form.append(container);
         return form;
     }
     function validate() {
         let valid = true;
-        // validate form
-        // test that name is valid
+        
         const name = form.name.value;
         const eleNameError = form.name.nextElementSibling
 
@@ -72,7 +71,7 @@ async function animal(name) {
             eleNameError.classList.add('d-none');
         }
 
-        // test that breed is valid
+        
         const breed = form.breed.value;
         const eleBreedError = form.breed.nextElementSibling
         if (breed == "") {
@@ -97,16 +96,16 @@ async function animal(name) {
             eleLegsError.classList.add('d-none');
         }
 
-        const eyes = form.eyes.value; // check that these are numbers
+        const eyes = form.eyes.value; 
         const sound = form.sound.value;
-        // return if the form is valid or not
+       
         return valid
     }    
-    // create a handler to deal with the submit event
+   
     async function submit(action) {
-        // validate the form
+        
         const valid = validate();
-        // do stuff if the form is valid
+       
         if (valid) {
             console.log('were good');
 
@@ -136,16 +135,16 @@ async function animal(name) {
                 eleNameError.classList.remove('d-none');
                 eleNameError.textContent = "This animal already exists!";
             }
-            // do nothing if it's not
+            
         } else {
             console.log('were not good');
         }
     }
     
     if (!name) {
-        // assign a handler to the submit event
+        
         form.addEventListener('submit', function (event) {
-            // prevent the default action from happening
+            
             event.preventDefault();
             submit("new");
         });
@@ -156,13 +155,13 @@ async function animal(name) {
             let ret = await animalService.findAnimal(name);
             animal = ret[0];
             form.addEventListener('submit', function (event) {
-                // prevent the default action from happening
+                
                 event.preventDefault();
                 submit("update");
             });
         }
         catch(err){
-//show err on page
+
             description = err;
         }
     }

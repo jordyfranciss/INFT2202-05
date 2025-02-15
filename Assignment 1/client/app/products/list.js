@@ -6,6 +6,8 @@
     Description: This is my general application script.  Functions that are required on every page should live here.
 */
 // src/client/app/products/list.js
+
+
 import ProductService from './product.mock.service.js';
 import Product from './product.js';
 
@@ -23,14 +25,14 @@ class ProductList {
     }
 
     addEventListeners() {
-        // Change handler for items per page
+        //  page
         this.itemsPerPageSelector.addEventListener('change', (e) => {
             this.itemsPerPage = parseInt(e.target.value);
-            this.currentPage = 1; // Reset to first page
+            this.currentPage = 1; // page
             this.render();
         });
 
-        // Initialize the value for items per page
+    
         this.itemsPerPage = parseInt(this.itemsPerPageSelector.value);
     }
 
@@ -73,14 +75,14 @@ class ProductList {
         const totalPages = this.calculateTotalPages();
         let paginationHTML = '';
 
-        // Previous button
+        // Previous 
         paginationHTML += `
             <li class="page-item ${this.currentPage === 1 ? 'disabled' : ''}">
                 <a class="page-link" href="#" data-page="${this.currentPage - 1}">Previous</a>
             </li>
         `;
 
-        // Page numbers
+        // Page 
         for (let i = 1; i <= totalPages; i++) {
             paginationHTML += `
                 <li class="page-item ${i === this.currentPage ? 'active' : ''}">
@@ -89,7 +91,7 @@ class ProductList {
             `;
         }
 
-        // Next button
+        // pagination 
         paginationHTML += `
             <li class="page-item ${this.currentPage === totalPages ? 'disabled' : ''}">
                 <a class="page-link" href="#" data-page="${this.currentPage + 1}">Next</a>
@@ -98,7 +100,7 @@ class ProductList {
 
         this.paginationContainer.innerHTML = paginationHTML;
 
-        // Add click event listeners to pagination buttons
+        // Click event
         this.paginationContainer.querySelectorAll('.page-link').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -117,10 +119,10 @@ class ProductList {
     }
 }
 
-// Initialize the product list
+// Define the new product
 const productList = new ProductList();
 
-// Global functions for update and delete actions
+// functions for update and delete
 window.updateProduct = function(id) {
     window.location.href = `create.html?edit=${id}`;
 };

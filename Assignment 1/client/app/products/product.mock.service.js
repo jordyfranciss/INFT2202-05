@@ -26,17 +26,17 @@ class ProductService {
     }
 
     addProduct(product) {
-        product.id = product.id || Date.now(); // Ensure unique ID if missing
+        product.id = product.id || Date.now(); // Ensure
         this.products.push(product);
         this._storeProducts();
     }
 
     getProducts() {
-        return [...this.products]; // Return a copy to prevent direct mutation
+        return [...this.products]; // Return 
     }
 
     deleteProduct(id) {
-        this.products = this.products.filter(p => p.id !== id);
+        this.products = this.products.filter(product => product.id !== id);
         this._storeProducts();
     }
 

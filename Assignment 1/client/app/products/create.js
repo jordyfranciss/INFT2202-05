@@ -6,7 +6,7 @@ const params = new URLSearchParams(window.location.search);
 const editId = params.get('edit');
 let currentProduct = null;
 
-// Validate form inputs
+
 function validateForm(name, description, stock, price) {
     let isValid = true;
     const errorMessages = {
@@ -16,12 +16,12 @@ function validateForm(name, description, stock, price) {
         price: 'Price must be a valid positive number with up to 2 decimal places.',
     };
 
-    // Clear previous errors
+    
     ['productNameError', 'productDescriptionError', 'productStockError', 'productPriceError'].forEach(id => {
         document.getElementById(id).textContent = '';
     });
 
-    // Validation checks
+   
     if (!name) {
         document.getElementById('productNameError').textContent = errorMessages.name;
         isValid = false;
@@ -42,19 +42,19 @@ function validateForm(name, description, stock, price) {
     return isValid;
 }
 
-// Handle price input formatting
+
 document.getElementById('productPrice').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/[^\d.]/g, '');  // Allow only digits and decimal
+    let value = e.target.value.replace(/[^\d.]/g, '');  
     const parts = value.split('.');
     
-    // Allow only one decimal point and limit decimal places to 2
+    
     if (parts.length > 2) value = parts[0] + '.' + parts.slice(1).join('');
     if (parts[1]) value = parts[0] + '.' + parts[1].slice(0, 2);
     
     e.target.value = value;
 });
 
-// Autofill form when editing an existing product
+
 function autoFillForm(product) {
     document.getElementById('productName').value = product.name;
     document.getElementById('productDescription').value = product.description;
@@ -64,13 +64,13 @@ function autoFillForm(product) {
     document.querySelector('button[type="submit"]').textContent = 'Save Changes';
 }
 
-// Auto-fill if editing
+
 if (editId) {
     currentProduct = ProductService.getProducts().find(p => p.id === editId);
     if (currentProduct) autoFillForm(currentProduct);
 }
 
-// Handle form submission (create or update product)
+
 document.getElementById('create-product-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -79,13 +79,12 @@ document.getElementById('create-product-form').addEventListener('submit', functi
     const stock = parseInt(document.getElementById('productStock').value);
     const price = parseFloat(document.getElementById('productPrice').value);
 
-    // Validate form
     if (!validateForm(name, description, stock, price)) return;
 
     const newProduct = new Product(name, description, stock, price);
 
     if (editId) {
-        newProduct.id = editId;  // Keep original ID for updates
+        newProduct.id = editId;  
         ProductService.updateProduct(editId, newProduct);
         alert('Product updated successfully!');
     } else {
