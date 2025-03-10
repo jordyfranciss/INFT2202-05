@@ -7,6 +7,7 @@ student id - 100934437
 // src/client/app/products/product.mock.service.js
 import Product from './product.js';
 
+
 class ProductService {
     constructor() {
         this.products = this.loadProducts();
