@@ -1,4 +1,5 @@
 # Dependencies
+node_modules
 /node_modules
 node_modules/
 
@@ -10,25 +11,8 @@ logs
 *.log
 npm-debug.log*
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# IDE files
-.vscode/
-.idea/
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
 # Build output
 /dist
 /build
+/_site
+.jekyll-cache
