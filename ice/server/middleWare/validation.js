@@ -1,27 +1,21 @@
-import { validationResult } from 'express-validator'; // Import validationResult
+import { validationResult } from 'express-validator';
+import { ConflictError } from '../errors/ConflictError.js';
 
-import { body } from 'express-validator';
-
-
-// Validation rules for animals (adjust as needed)
-export const rules = [
-  body('name').notEmpty().withMessage('Name is required'),
-  body('species').notEmpty().withMessage('Species is required'),
-  body('age').isInt({ min: 0 }).withMessage('Age must be a positive integer'),
-];
-
-// Middleware for validation
-export const checkValidation = (validationRules) => {
-  return (req, res, next) => {
-    // Apply the validation rules
-    validationRules.forEach(rule => rule.run(req));
-    const errors = validationResult(req);
-
-    // If errors are found, return a 400 with error details
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    next(); // Continue if no errors
+function doValidation (request, response, next) 
+{
+  const result = validationResult(request);
+  if (result.isEmpty()) {
+    // Pass the sanitized data to the next middleware
+    //request.sanitizedData = matchedData(request); //No need, express will do it under the hood
+    return next(); 
+  }
+  const errObj = { 
+    errors: result.array() 
   };
-};
+  //response.status(409).json(errObj);
+  next(new ConflictError('Input Validation Failed', errObj));
+}
+
+export function checkValidation (rules) {
+  return [...rules, doValidation]
+}

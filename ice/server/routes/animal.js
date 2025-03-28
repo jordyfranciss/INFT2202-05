@@ -1,12 +1,11 @@
 import express from 'express';
-import animalControllers from '../controllers/animal.js'; // Make sure this is correct
+import animal from "../controllers/animal.js";
 import { checkValidation } from '../middleWare/validation.js';
 
 const router = express.Router();
-
-router.get('/:name?', checkValidation(animalControllers.rules), animalControllers.index);
-router.post('/', checkValidation(animalControllers.rules), animalControllers.add);
-router.delete('/:name?', animalControllers.delete);
-router.put('/', checkValidation(animalControllers.rules), animalControllers.update);
+router.get('/:name?', checkValidation(animal.rules), animal.index);
+router.post('/', checkValidation(animal.rules), animal.add);
+router.delete('/:name?', animal.delete);
+router.put('/', checkValidation(animal.rules), animal.update);
 
 export default router;

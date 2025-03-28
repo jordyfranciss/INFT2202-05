@@ -1,0 +1,79 @@
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product - Online Shop</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+        <!--header-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Online Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="../product/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../product/list.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../create.html">Add Product</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--input fields-->
+    <div class="container mt-4">
+        <h1 class="text-center">Add to Inventory</h1>
+        <form id="create-product-form" novalidate>
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="productName" required>
+                <div class="text-danger" id="productNameError"></div>
+            </div>
+            <div class="mb-3">
+                <label for="productDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="productDescription" required></textarea>
+                <div class="text-danger" id="productDescriptionError"></div>
+            </div>
+            <div class="mb-3">
+                <label for="productStock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="productStock" required>
+                <div class="text-danger" id="productStockError"></div>
+            </div>
+            <div class="mb-3">
+                <label for="productPrice" class="form-label">Price ($)</label>
+                <input 
+                    type="number" 
+                    step="0.01" 
+                    min="0" 
+                    class="form-control" 
+                    id="productPrice" 
+                    placeholder="0.00"
+                    required
+                >
+                <div class="text-danger" id="productPriceError"></div>
+            </div>
+            <button 
+                type="submit" class="btn btn-dark" id="submitButton">Create Product
+            </button>
+        </form>
+    </div>
+<!--footer-->
+    <footer class="text-center py-3 mt-4 bg-dark">
+        <p>&copy; <span id="year"></span> Jordy Francis, Inc</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="app/products/create.js"></script>
+</body>
+</html>
